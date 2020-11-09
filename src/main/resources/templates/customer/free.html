@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>:::제이디코리아:::</title>
+    </head>
+    <body>
+        <!-- free board area -->
+        <div id="mainList">
+            <table class="freeList">
+                <thead>
+                <tr>
+                    <th class="col-md-1">번호</th>
+                    <th class="col-md-5">제목</th>
+                    <th class="col-md-2">작성자</th>
+                    <th class="col-md-2">작성일자</th>
+                    <th class="col-md-1">조회수</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="board : ${freeList}">
+                    <td th:text="${board.idx}"></td>
+                    <td><a th:href="'/board?idx=' + ${board.idx}"  th:text="${board.title}"></a></td>
+                    <td th:text="${board.name}"></td>
+                    <td th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></td>
+                    <td th:text="${board.readCnt}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- free board area end -->
+
+        <!-- pagenation area-->
+        <nav aria-label="Page navigation" style="text-align:center;">
+            <ul class="pagination"
+                th:with="startNumber=${T(Math).floor(freeList.number/10)}*10+1,
+                    endNumber=(${freeList.totalPages} > ${startNumber}+9) ? ${startNumber}+9 : ${freeList.totalPages}">
+                <li><a aria-label="Previous" href="/customer/free?page=1">&laquo;</a></li>
+                <li th:style="${freeList.first} ? 'display:none'">
+                    <a th:href="@{/customer/free(page=${freeList.number})}">&lsaquo;</a>
+                </li>
+
+                <li th:each="page :${#numbers.sequence(startNumber, endNumber)}" th:class="(${page} == ${freeList.number}+1) ? 'active'">
+                    <a th:href="@{/customer/free(page=${page})}" th:text="${page}">
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+
+                <li th:style="${freeList.last} ? 'display:none'">
+                    <a th:href="@{/customer/free(page=${freeList.number}+2)}">&rsaquo;</a>
+                </li>
+                <li><a aria-label="Next" th:href="@{/customer/free(page=${freeList.totalPages})}">&raquo;</a></li>
+            </ul>
+        </nav>
+        <!-- pagenation area end -->
+
+        <div th:replace="layout/footer::footer"></div>
+    </body>
+</html>

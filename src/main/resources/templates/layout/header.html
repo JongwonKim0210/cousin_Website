@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <!--header-->
+    <div th:fragment="header">
+        <div class="top_wrap">
+            <ul class="top">
+                <li><a href="/index">처음으로<!--<img src="a">--></a></li>
+                <li><a href="https://blog.naver.com/jdkorea1974">블로그<!--<img src="b">--></a></li>
+            </ul>
+        </div>
+        <div class="logo_menu">
+            <span class="subLine"></span>
+            <div id="logo">
+                <a href="/index">로고<!--<img src="a">--></a>
+            </div>
+            <div id="menu">
+                <ul class="jdk_menu" style="height: 30px">
+                    <li class="j1">
+                        <strong><a href="/about">ABOUT</a></strong>
+                        <ul class="dep2" style="display: block;">
+                            <li><a href="/about/welcome">인사말</a></li>
+                            <li><a href="/about/location">오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li class="j2">
+                        <strong><a href="/business">BUSINESS</a></strong>
+                        <ul class="dep2" style="display: block;">
+                            <li><a href="/business/spac">필터스팩</a></li>
+                            <li><a href="/business/business">사업분야</a></li>
+                        </ul>
+                    </li>
+                    <li class="j3">
+                        <strong><a href="/gallery">GALLERY</a></strong>
+                        <ul class="dep2" style="display: block;">
+                            <li><a href="/gallery">겔러리</a></li>
+                        </ul>
+                    </li>
+                    <li class="j4">
+                        <strong><a href="/online">ONLINE</a></strong>
+                        <ul class="dep2" style="display: block;">
+                            <li><a href="/online">온라인문의</a></li>
+                        </ul>
+                    </li>
+                    <li class="j5">
+                        <strong><a href="/customer">CUSTOMER</a></strong>
+                        <ul class="dep2" style="display: block;">
+                            <li><a href="/customer/notic">공지사항</a></li>
+                            <li><a href="/customer/free">자유게시판</a></li>
+                            <li><a href="/customer/qna">Q&A</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--/header-->
+
+</html>
