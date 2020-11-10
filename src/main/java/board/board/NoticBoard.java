@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table
-public class Board implements Serializable {
+public class NoticBoard implements Serializable {
 
     @Id
     @Column
@@ -41,7 +41,7 @@ public class Board implements Serializable {
     private int readCnt;
 
     @Builder
-    public Board(Long idx, String password, String name, String title, LocalDateTime createdDate, String content, boolean secret, int readCnt){
+    public NoticBoard(Long idx, String password, String name, String title, LocalDateTime createdDate, String content, boolean secret, int readCnt){
         this.idx = idx;
         this.password = password;
         this.name = name;
@@ -51,5 +51,6 @@ public class Board implements Serializable {
         this.secret = secret;
         this.readCnt = readCnt;
     }
+
 
 }

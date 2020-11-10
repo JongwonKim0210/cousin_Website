@@ -1,6 +1,8 @@
 package board.controller.menuController;
 
-import board.service.BoardService;
+import board.service.FreeBoardService;
+import board.service.NoticBoardService;
+import board.service.QnABoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -14,23 +16,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CustomerController {
 
     @Autowired
-    BoardService boardService;
+    NoticBoardService noticBoardService;
+
+    @Autowired
+    FreeBoardService freeBoardService;
+
+    @Autowired
+    QnABoardService qnABoardService;
 
     @GetMapping({"", "/notic"})
     public String notic(@PageableDefault Pageable pageable, Model model){
-        model.addAttribute("noticList", boardService.findNoticList(pageable));
+        model.addAttribute("noticList", noticBoardService.findNoticList(pageable));
         return "/customer/notic";
     }
 
     @GetMapping("/free")
     public String free(@PageableDefault Pageable pageable, Model model){
-        model.addAttribute("freeList", boardService.findFreeList(pageable));
+        model.addAttribute("freeList", freeBoardService.findFreeList(pageable));
         return "/customer/free";
     }
 
     @GetMapping("/qna")
     public String qna(@PageableDefault Pageable pageable, Model model){
-        model.addAttribute("qnaList", boardService.findQnAList(pageable));
+        model.addAttribute("qnaList", qnABoardService.findQnAList(pageable));
         return "/customer/qna";
     }
 

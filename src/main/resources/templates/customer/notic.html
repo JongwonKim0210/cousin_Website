@@ -3,6 +3,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>:::제이디코리아:::</title>
+        <link rel="stylesheet" th:href="@{/css/base.css}">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
     </head>
     <body>
 
@@ -29,7 +31,6 @@
                 </tbody>
             </table>
         </div>
-        <!-- notic board area end -->
 
         <!-- pagenation area-->
         <nav aria-label="Page navigation" style="text-align:center;">
@@ -54,6 +55,7 @@
             </ul>
         </nav>
         <!-- pagenation area end -->
+        <!-- notic board area end -->
 
         <div th:replace="layout/footer::footer"></div>
     </body>
