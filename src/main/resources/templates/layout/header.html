@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
     <!--header-->
     <div th:fragment="header">
         <div class="top_wrap">
             <ul class="top">
-                <li><a href="/index">처음으로<!--<img src="a">--></a></li>
-                <li><a href="https://blog.naver.com/jdkorea1974">블로그<!--<img src="b">--></a></li>
+                <li><a href="/index"><img th:src="@{/images/top_home.gif}")></a></li>
+                <li><a href="https://blog.naver.com/jdkorea1974"><img th:src="@{/images/top_home1.gif}")></a></li>
             </ul>
         </div>
         <div class="logo_menu">
             <span class="subLine"></span>
             <div id="logo">
-                <a href="/index">로고<!--<img src="a">--></a>
+                <a href="/index"><img th:src="@{/images/logo.gif}")></a>
             </div>
             <div id="menu">
                 <ul class="jdk_menu" style="height: 30px">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
     <!--footer-->
     <div th:fragment="footer">
@@ -16,19 +16,19 @@
                                         <table width="850px" border="0" cellspacing="0" cellpadding="0">
                                             <tbody>
                                             <tr>
-                                                <td width="850px" class="bottom-top" style="padding:0 0 8px 6px;">
+                                                <td width="850px" class="bottom-top" style="padding:0 0 8px 6px; text-align:left;">
                                                     <a href="/about/welcome">회사소개</a>
-                                                    <a href="/business/spac">사업분야</a>
-                                                    <a href="/gallery/gallery">갤러리</a>
-                                                    <a href="/online/mail">온라인문의</a>
-                                                    <a href="/customer/notic">고객센터</a>
+                                                    <a href="/business/spac" style="padding:0 0 0 10px;">사업분야</a>
+                                                    <a href="/gallery/gallery" style="padding:0 0 0 10px;">갤러리</a>
+                                                    <a href="/online/mail" style="padding:0 0 0 10px;">온라인문의</a>
+                                                    <a href="/customer/notic" style="padding:0 0 0 10px;">고객센터</a>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="bottom" style="padding:0 0 20px 6px;">
-                                                    주소 : 인천광역시 용종동 210-2 제이디코리아ㅣ 상호: 제이디코리아 ㅣ 사업자등록번호 : 537-24-00885<br/>
-                                                    Tel : 032-553-0088 | Fax : 032-553-0166 | E-mail : jdkorea1974@naver.com<br/>
-                                                    Copyright (c) jdkorea.biz All Rights Reserved.
+                                                <td class="bottom" style="padding:0 0 20px 6px; text-align:left;">
+                                                    주소 : 인천광역시 용종동 000-0 가나다라마바사ㅣ 상호: 가나다라마바사 ㅣ 사업자등록번호 : 000-00-00000<br/>
+                                                    Tel : 032-123-4567 | Fax : 032-123-4567 | E-mail : test@naver.com<br/>
+                                                    Copyright (c) test.biz All Rights Reserved.
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -41,7 +41,7 @@
                         <td width="250px">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tbody>
-                                <tr><td><!-- 이미지 소스 넣기 (<img src="**/logo-bottom.gif")--></td></tr>
+                                <tr><td><img th:src="@{/images/logo_bottom.gif}")></td></tr>
                                 </tbody>
                             </table>
                         </td>
