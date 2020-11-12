@@ -12,4 +12,6 @@ public class OnlineController {
     public String mail(){
         return "/online/mail";
     }
+
+
 }

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>:::OOO코리아:::</title>
+        <link rel="stylesheet" th:href="@{/css/base.css}" />
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    </head>
+    <body>
+        <h2>sendMail</h2>
+        <form th:action="@{/online/sendMail}" method="post">
+            <div>
+                to :
+                <input type="text" name="to">
+            </div>
+            <div>
+                from :
+                <input type="text" name="from">
+            </div>
+            <div>
+                subject :
+                <input type="text" name="subject">
+            </div>
+            <div>
+                body :
+                <textarea name="text" rows="5" cols="80"></textarea>
+            </div>
+            <button type="submit">메일전송</button>
+        </form>
+        <div th:replace="layout/footer::footer"></div>
+    </body>
 </html>

@@ -10,8 +10,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.time.LocalDateTime;
+import java.util.Properties;
 import java.util.stream.IntStream;
 
 @SpringBootApplication
@@ -21,6 +24,7 @@ public class BoardApplication {
 		SpringApplication.run(BoardApplication.class, args);
 	}
 
+	//게시판 테스트글 생성
 	@Bean
 	public CommandLineRunner runner(NoticBoardRepository noticBoardRepository,
 									FreeBoardRepository freeBoardRepository,
