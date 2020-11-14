@@ -7,7 +7,7 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class SenderDto {
+public class OnlineMailDto {
 
     private String from;
     private List<String> to;
@@ -15,7 +15,7 @@ public class SenderDto {
     private String content;
 
     @Builder
-    public SenderDto(String from, List<String> to, String subject, String content){
+    public OnlineMailDto(String from, List<String> to, String subject, String content){
         this.from = from;
         this.to = to;
         this.subject = subject;

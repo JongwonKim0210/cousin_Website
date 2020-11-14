@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <title>:::OOO코리아:::</title>
-    </head>
-    <body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>:::OOO코리아:::</title>
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+
+<div class="sub_all">
+    <div id="sidemenu">
+        <div id="submenu">
+            <div id="submenu01">
+                <img th:src="@{/images/sub_menu05.gif}">
+            </div>
+            <div id="submenu02">
+                <img th:src="@{/images/dot02.gif}">
+                <b><a href="/customer/notic">공지사항</a></b>
+            </div>
+            <div id="submenu03">
+                <img th:src="@{/images/dot02.gif}">
+                <b><a href="/customer/free">자유게시판</a></b>
+            </div>
+            <div id="submenu04">
+                <img th:src="@{/images/dot02.gif}">
+                <b><a href="/customer/qna">Q&A</a></b>
+            </div>
+        </div>
+    </div>
+    <div id="content">
         <!-- free board area -->
         <div id="mainList">
             <table class="freeList">
@@ -55,5 +79,8 @@
         <!-- pagenation area end -->
 
         <div th:replace="layout/footer::footer"></div>
-    </body>
+    </div>
+</div>
+
+</body>
 </html>

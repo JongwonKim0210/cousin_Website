@@ -1,7 +1,7 @@
 package board.service;
 
 
-import board.board.dto.SenderDto;
+import board.board.dto.OnlineMailDto;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -10,9 +10,9 @@ import com.amazonaws.services.simpleemail.AmazonSimpleEmailServiceClientBuilder;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class Sender {
+public class MailService {
 
-    public void send(SenderDto senderDto){
+    public void send(OnlineMailDto onlineMailDto){
         try {
             log.info("Attempting to send an email through Amazon SES by using the AWS SDK for Java...");
             //연습을 위한 Access, Secret Key를 Static처리
@@ -37,7 +37,7 @@ public class Sender {
                     .build();
 
             //Send the email.
-            client.sendEmail(senderDto.toSendRequestDto());
+            client.sendEmail(onlineMailDto.toSendRequestDto());
             log.info("Email Sent!");
 
         } catch (Exception ex) {

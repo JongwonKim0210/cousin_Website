@@ -10,20 +10,20 @@
         <h2>sendMail</h2>
         <form th:action="@{/online/sendMail}" method="post">
             <div>
-                to :
+                받는사람 :
                 <input type="text" name="to">
             </div>
             <div>
-                from :
+                보내는사람 :
                 <input type="text" name="from">
             </div>
             <div>
-                subject :
+                제목 :
                 <input type="text" name="subject">
             </div>
             <div>
-                body :
-                <textarea name="text" rows="5" cols="80"></textarea>
+                내용 :
+                <textarea name="content" rows="5" cols="80"></textarea>
             </div>
             <button type="submit">메일전송</button>
         </form>

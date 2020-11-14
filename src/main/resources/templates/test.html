@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>:::OOO코리아:::</title>
+        <link rel="stylesheet" th:href="@{/css/base.css}">
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    </head>
+    <body>
+
+        <div class="sub_all">
+            <div id="sidemenu">
+                <div id="submenu">
+                    <div id="submenu01">
+                        <img th:src="@{/images/sub_menu05.gif}">
+                    </div>
+                    <div id="submenu02">
+                        <img th:src="@{/images/dot02.gif}">
+                        <b><a href="/customer/notic">공지사항</a></b>
+                    </div>
+                    <div id="submenu03">
+                        <img th:src="@{/images/dot02.gif}">
+                        <b><a href="/customer/free">자유게시판</a></b>
+                    </div>
+                    <div id="submenu04">
+                        <img th:src="@{/images/dot02.gif}">
+                        <b><a href="/customer/qna">Q&A</a></b>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <!-- qna board area -->
+                <div id="mainList">
+                    <table class="qnaList">
+                        <thead>
+                        <tr>
+                            <th class="col-md-1">번호</th>
+                            <th class="col-md-5">제목</th>
+                            <th class="col-md-2">작성자</th>
+                            <th class="col-md-2">작성일자</th>
+                            <th class="col-md-1">조회수</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="board : ${qnaList}">
+                            <td th:text="${board.idx}"></td>
+                            <td><a th:href="'/board?idx=' + ${board.idx}"  th:text="${board.title}"></a></td>
+                            <td th:text="${board.name}"></td>
+                            <td th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')}"></td>
+                            <td th:text="${board.readCnt}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- qna board area end -->
+
+                <!-- pagenation area-->
+                <nav aria-label="Page navigation" style="text-align:center;">
+                    <ul class="pagination"
+                        th:with="startNumber=${T(Math).floor(qnaList.number/10)}*10+1,
+                        endNumber=(${qnaList.totalPages} > ${startNumber}+9) ? ${startNumber}+9 : ${qnaList.totalPages}">
+                        <li><a aria-label="Previous" href="/customer/qna?page=1">&laquo;</a></li>
+                        <li th:style="${qnaList.first} ? 'display:none'">
+                            <a th:href="@{/customer/qna(page=${qnaList.number})}">&lsaquo;</a>
+                        </li>
+
+                        <li th:each="page :${#numbers.sequence(startNumber, endNumber)}" th:class="(${page} == ${qnaList.number}+1) ? 'active'">
+                            <a th:href="@{/customer/qna(page=${page})}" th:text="${page}">
+                                <span class="sr-only"></span>
+                            </a>
+                        </li>
+
+                        <li th:style="${qnaList.last} ? 'display:none'">
+                            <a th:href="@{/customer/qna(page=${qnaList.number}+2)}">&rsaquo;</a>
+                        </li>
+                        <li><a aria-label="Next" th:href="@{/customer/qna(page=${qnaList.totalPages})}">&raquo;</a></li>
+                    </ul>
+                </nav>
+                <!-- pagenation area end -->
+
+                <div th:replace="layout/footer::footer"></div>
+            </div>
+        </div>
+
+    </body>
+</html>
