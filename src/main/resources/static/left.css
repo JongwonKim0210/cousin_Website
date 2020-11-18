@@ -1,0 +1,8 @@
+    .sidemenu {
+        width : 200px;
+        float : left;
+    }
+    .content {
+            width : 1000px;
+        float : right;
+    }
